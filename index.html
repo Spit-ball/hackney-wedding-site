@@ -3,26 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rachel & Christopher— Wedding Website</title>
+    <title>Christopher & Rachel — Wedding Website</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Montserrat:wght@200;300;400;500&display=swap"
       rel="stylesheet"
     />
 
     <style>
       :root {
         --primary: #4e5949;
+        --primary-light: #f0f2ef;
         --accent: #e5b3b3;
+        --accent-light: #faf0f0;
         --accent-dark: #cc9696;
         --text: #2c3e50;
-        --text-secondary: #576574;
-        --bg-base: #f7f5f0;
+        --text-secondary: #6b7c8e;
+        --bg-base: #f9f8f6;
         --white: #ffffff;
-        --radius-lg: 24px;
-        --radius-md: 12px;
-        --shadow-lift: 0 12px 40px rgba(78, 89, 73, 0.06);
+
+        --radius-lg: 32px;
+        --radius-md: 16px;
+        --radius-sm: 8px;
+
+        /* Deeper, softer modern shadow */
+        --shadow-lift: 0 20px 50px rgba(78, 89, 73, 0.04);
+        --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
       }
 
       * {
@@ -30,116 +37,566 @@
         margin: 0;
         padding: 0;
       }
+
       html {
         scroll-behavior: smooth;
       }
+
       body {
         font-family: "Montserrat", sans-serif;
+        font-size: 14px;
         color: var(--text);
         background-color: var(--bg-base);
-        line-height: 1.7;
+        line-height: 1.8;
+        letter-spacing: 0.2px;
+        -webkit-font-smoothing: antialiased;
       }
+
+      /* Elegant Editorial Typography */
       h1,
       h2,
       h3,
       h4 {
         font-family: "Cormorant Garamond", serif;
+        font-weight: 300;
+        text-align: center;
+        color: var(--primary);
+      }
+
+      p {
+        font-weight: 300;
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+      }
+
+      /* Utility Text Classes */
+      .text-lead {
+        font-size: 1.35rem;
+        font-style: italic;
+        color: var(--primary);
+        font-family: "Cormorant Garamond", serif;
         font-weight: 400;
       }
 
+      .text-regular {
+        font-weight: 400;
+      }
+
+      .address-text {
+        margin-top: 3rem;
+        font-size: 1.2rem;
+        font-weight: 400;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .subtext {
+        display: block;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        opacity: 0.85;
+        margin-top: 0.2rem;
+      }
+
+      /* Minimalist Blur Navigation */
       nav {
         position: fixed;
         top: 0;
         width: 100%;
-        background-color: rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(12px);
-        padding: 1.4rem;
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 1.5rem;
         z-index: 1000;
         text-align: center;
+        border-bottom: 1px solid rgba(78, 89, 73, 0.05);
       }
+
       nav a {
         text-decoration: none;
         color: var(--text);
-        margin: 0 1rem;
-        font-size: 0.8rem;
-        letter-spacing: 1.5px;
+        margin: 0 1.5rem;
+        font-size: 0.75rem;
+        font-weight: 400;
+        letter-spacing: 2px;
         text-transform: uppercase;
+        transition: var(--transition-smooth);
+        opacity: 0.8;
       }
 
+      nav a:hover {
+        opacity: 1;
+        color: var(--primary);
+      }
+
+      /* Immersive Cinematic Hero Header */
       header {
-        padding: 12rem 2rem;
+        padding: 0 2rem;
         text-align: center;
-        background: #e8e6e1;
-        min-height: 60vh;
+        height: 90vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-      }
-      header h1 {
-        font-size: 4.5rem;
-        color: var(--primary);
-        font-style: italic;
+        color: var(--white);
+        position: relative;
+        overflow: hidden; /* Prevents the zoomed image from spilling outside the header boundaries */
       }
 
-      .main-container {
-        max-width: 960px;
-        margin: -4rem auto 0 auto;
-        padding: 0 2rem 6rem 2rem;
-      }
-      .content-block {
-        background: var(--white);
-        padding: 4rem;
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-lift);
-        margin-bottom: 3rem;
-        position: relative;
-      }
-      .content-block::before {
+      /* Handles the background image zoom safely */
+      header::before {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
-        height: 6px;
-        background-color: var(--primary);
-        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        bottom: 0;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.35)),
+          url("images/field.jpg");
+        background-size: cover;
+        background-position: center 40%;
+        transform: scale(
+          1.5
+        ); /* 1.15 = 15% zoomed in. Adjust up or down as needed! */
+        z-index: 1;
       }
-      .alt-accent::before {
+
+      /* Ensures the text and button sit perfectly on top of the zoomed image */
+      header h1,
+      header p,
+      header .hero-btn {
+        position: relative;
+        z-index: 2;
+      }
+
+      header h1 {
+        font-size: clamp(3rem, 7vw, 5.5rem);
+        color: var(--white);
+        font-style: italic;
+        font-weight: 300;
+        line-height: 1.1;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      header p {
+        font-size: clamp(0.8rem, 2vw, 1.1rem);
+        font-weight: 400;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-top: 1.5rem;
+        color: rgba(255, 255, 255, 0.9);
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Hero Action Button */
+      .hero-btn {
+        display: inline-block;
+        margin-top: 2.5rem;
+        padding: 1.1rem 3rem;
+        border: 1px solid var(--white);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: var(--radius-sm);
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        transition: var(--transition-smooth);
+        background: transparent;
+        text-shadow: none;
+      }
+
+      .hero-btn:hover {
+        background-color: var(--white);
+        color: var(--primary);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Container Structure with High Whitespace Layout */
+      .main-container {
+        max-width: 1040px;
+        margin: -6rem auto 0 auto;
+        padding: 0 2rem 8rem 2rem;
+        position: relative;
+        z-index: 10;
+      }
+
+      .content-block {
+        background: var(--white);
+        padding: 5.5rem 4.5rem;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-lift);
+        margin-bottom: 4rem;
+        text-align: center;
+      }
+
+      /* Refined Context Styles */
+      .content-block h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.5px;
+      }
+
+      .content-block h2 + p {
+        max-width: 650px;
+        margin: 0 auto 2.5rem auto;
+        font-size: 1.05rem;
+      }
+
+      .section-divider {
+        width: 50px;
+        height: 1px;
+        background-color: var(--accent);
+        border: none;
+        margin: 0 auto 2.5rem auto;
+      }
+
+      /* Highlight styling alternating block (Soft Blush) */
+      .featured-block {
+        background-color: var(--accent-light);
+        border: 1px solid rgba(229, 179, 179, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .featured-block::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          to right,
+          var(--accent),
+          var(--accent-dark)
+        );
+      }
+
+      /* Couple Profile Styling */
+      .couple-container {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .profile h3 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+        font-style: italic;
+      }
+
+      .photo-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin-top: 4rem;
+      }
+
+      .gallery-frame {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        border-radius: var(--radius-md);
+        position: relative;
+        background-color: var(--bg-base);
+      }
+
+      .wedding-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: var(--transition-smooth);
+        filter: brightness(0.98);
+      }
+
+      .gallery-frame:hover .wedding-photo {
+        transform: scale(1.04);
+        filter: brightness(1.02);
+      }
+
+      /* Event Details Format */
+      .event-details-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-top: 3.5rem;
+      }
+
+      .event-card {
+        padding: 2rem 1.5rem;
+        background: var(--white);
+        border-radius: var(--radius-md);
+        box-shadow: 0 10px 30px rgba(78, 89, 73, 0.02);
+        transition: var(--transition-smooth);
+        border: 1px solid rgba(78, 89, 73, 0.02);
+      }
+
+      .event-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 35px rgba(78, 89, 73, 0.06);
+      }
+
+      .event-card h4 {
+        font-size: 0.85rem;
+        font-family: "Montserrat", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 0.75rem;
+        color: var(--primary);
+        font-weight: 500;
+      }
+
+      .event-card p {
+        font-size: 1.05rem;
+        color: var(--text);
+      }
+
+      /* Color Swatches Swatch Wrapper */
+      .palette-swatches {
+        display: flex;
+        justify-content: center;
+        gap: 2.5rem;
+        margin-top: 2.5rem;
+      }
+
+      .swatch-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .swatch-circle {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        border: 2px solid var(--white);
+        transition: var(--transition-smooth);
+      }
+
+      .swatch-circle:hover {
+        transform: scale(1.1);
+      }
+
+      .swatch-circle.moss {
+        background-color: var(--primary);
+      }
+
+      .swatch-circle.blush {
         background-color: var(--accent);
       }
 
-      .couple-container {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 2rem;
+      .swatch-label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-weight: 500;
+        color: var(--text-secondary);
       }
+
+      /* Map container styling */
+      .img-container-map {
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        margin: 3.5rem 0;
+        border-radius: var(--radius-md);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+      }
+
+      /* Polished & Centered Star Wishlist Styling */
+      .wishlist-stars {
+        list-style: none;
+        max-width: 400px;
+        margin: 2.5rem auto;
+        padding: 0 1rem;
+        text-align: center;
+      }
+
+      .wishlist-stars li {
+        font-family: "Montserrat", sans-serif;
+        font-size: 24px;
+        font-weight: 300;
+        color: var(--text-secondary);
+        position: relative;
+        padding-left: 1.75rem;
+        margin-bottom: 1.2rem;
+        line-height: 1.6;
+      }
+
+      .wishlist-stars li::before {
+        content: "★";
+        position: absolute;
+        left: 0;
+        top: -1px;
+        color: var(--accent-dark);
+        font-size: 1.1rem;
+      }
+
+      /* Registry Actions */
+      .registry-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 3rem;
+        flex-wrap: wrap;
+      }
+
       .registry-btn {
         display: inline-block;
-        padding: 1rem 2rem;
+        padding: 1.1rem 2.5rem;
         border: 1px solid var(--primary);
         color: var(--primary);
         text-decoration: none;
-        margin: 0.5rem;
-        border-radius: var(--radius-md);
+        border-radius: var(--radius-sm);
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        transition: var(--transition-smooth);
+        background: transparent;
       }
 
-      .img-placeholder {
+      .registry-btn:hover {
+        background-color: var(--primary);
+        color: var(--white);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(78, 89, 73, 0.15);
+      }
+
+      /* CashApp Visual Polish */
+      .qr-container {
+        margin: 3.5rem 0 1rem 0;
+      }
+
+      .qr-label {
+        font-size: 1rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+      }
+
+      .cashapp-qr {
+        width: 190px;
+        max-width: 100%;
+        border-radius: var(--radius-md);
+        padding: 1rem;
+        background: var(--white);
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.03);
+        transition: var(--transition-smooth);
+      }
+
+      .cashapp-qr:hover {
+        transform: scale(1.02);
+      }
+
+      /* Modernized Inputs & Form Layout */
+      .rsvp-form {
+        max-width: 550px;
+        margin: 3rem auto 0 auto;
+        text-align: left;
+      }
+
+      .form-group {
+        margin-bottom: 2rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.65rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--primary);
+      }
+
+      .form-input,
+      .form-select {
         width: 100%;
-        height: 300px;
-        background: #ddd;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 1rem 0;
-        border-radius: var(--radius-md);
+        padding: 1.1rem 1.25rem;
+        border: 1px solid rgba(78, 89, 73, 0.15);
+        border-radius: var(--radius-sm);
+        font-family: inherit;
+        font-size: 0.95rem;
+        font-weight: 300;
+        color: var(--text);
+        background-color: rgba(255, 255, 255, 0.7);
+        transition: var(--transition-smooth);
+        outline: none;
       }
 
-      @media (max-width: 768px) {
+      .form-input:focus,
+      .form-select:focus {
+        border-color: var(--primary);
+        background-color: var(--white);
+        box-shadow: 0 5px 15px rgba(78, 89, 73, 0.05);
+      }
+
+      .btn-submit {
+        display: block;
+        width: 100%;
+        background: var(--primary);
+        color: var(--white);
+        padding: 1.25rem;
+        border: none;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 500;
+        transition: var(--transition-smooth);
+        margin-top: 3rem;
+        box-shadow: 0 10px 30px rgba(78, 89, 73, 0.1);
+      }
+
+      .btn-submit:hover {
+        background: #3c4538;
+        transform: translateY(-2px);
+        box-shadow: 0 15px 35px rgba(78, 89, 73, 0.2);
+      }
+
+      /* Clean Footer Layout */
+      footer {
+        background-color: var(--white);
+        border-top: 1px solid rgba(78, 89, 73, 0.05);
+      }
+
+      .footer-text {
+        text-align: center;
+        padding: 4rem 2rem;
+        color: var(--text-secondary);
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      /* Responsive Fine-Tuning */
+      @media (max-width: 868px) {
         .content-block {
-          padding: 2rem;
+          padding: 4rem 2rem;
+        }
+        .event-details-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+        .photo-gallery {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        .img-container-map {
+          height: 280px;
+          margin: 2rem 0;
+        }
+        .palette-swatches {
+          gap: 1.5rem;
         }
       }
     </style>
@@ -148,137 +605,267 @@
     <nav>
       <a href="#about">Couple</a>
       <a href="#event">Event</a>
+      <a href="#details">Attire</a>
       <a href="#travel">Honeymoon</a>
+      <a href="#registry">Fund</a>
       <a href="#rsvp">RSVP</a>
     </nav>
 
     <header>
-      <h1>Rachel & Christopher</h1>
+      <h1>Christopher & Rachel</h1>
       <p>Monday, June 21st, 2027</p>
+      <a href="#rsvp" class="hero-btn">RSVP</a>
     </header>
 
     <div class="main-container">
-      <div class="img-placeholder">[Insert Hero Wedding Photo Here]</div>
-
+      <!-- 1. Section: About (Clean White) -->
       <div id="about" class="content-block">
         <h2>The Couple</h2>
+        <hr class="section-divider" />
+
         <div class="couple-container">
           <div class="profile">
             <h3>Our Story</h3>
             <p>
               One night, we both found ourselves in the same room, eyeing each
-              other across a pool table. Rachel approached, and Chris introduced
-              himself. We played many games together since, and we humbly invite
-              you to join us as we vow to be together forever.
+              other across a pool table. We proceeded to play the first of the
+              many, many games we would have together. Over the years, we hit a
+              few foul balls and even lost while playing on the same team, but
+              none of this has diminished the joy of each other’s companionship.
+              <br />
+              <br />
+              <i>May the games continue, and may the memories be sweet.</i>
+              <br />
+              <br />
+              We humbly invite you to join us as we vow, before all our loved
+              ones and God, to be together forever. Please come and make some of
+              those memories with us, share some laughs, and enjoy this glorious
+              event.
             </p>
+          </div>
+        </div>
+
+        <div class="photo-gallery">
+          <div class="gallery-frame">
+            <img
+              src="images/arch.jpg"
+              alt="Rachel & Christopher at Arch"
+              class="wedding-photo"
+            />
+          </div>
+          <div class="gallery-frame">
+            <img
+              src="images/nuzzles.jpg"
+              alt="Rachel & Christopher Close-up"
+              class="wedding-photo"
+            />
+          </div>
+          <div class="gallery-frame">
+            <img
+              src="images/ring.jpg"
+              alt="The Engagement Ring"
+              class="wedding-photo"
+            />
+          </div>
+          <div class="gallery-frame">
+            <img
+              src="images/field2.jpg"
+              alt="Rachel & Christopher Field Portrait"
+              class="wedding-photo"
+            />
           </div>
         </div>
       </div>
 
-      <div id="event" class="content-block alt-accent">
+      <!-- 2. Section: Event (Feature Accent: Soft Blush) -->
+      <div id="event" class="content-block featured-block">
         <h2>The Big Day</h2>
-        <p><strong>Date:</strong> Monday, June 21st, 2027</p>
-        <p><strong>Ceremony:</strong> 7:00 PM (Reception to follow)</p>
-        <p>
-          <strong>Venue:</strong> Daffodil Hill Events, 3801 N College Ave,
-          Bethany, OK 73008
+        <hr class="section-divider" />
+        <p class="text-lead">
+          We can't wait to share this magical sunset celebration with you.
+        </p>
+
+        <div class="event-details-grid">
+          <div class="event-card">
+            <h4>Date</h4>
+            <p class="text-regular">Monday, June 21st, 2027</p>
+          </div>
+          <div class="event-card">
+            <h4>Ceremony</h4>
+            <p>
+              7:00 PM
+              <span class="subtext">Reception to follow</span>
+            </p>
+          </div>
+          <div class="event-card">
+            <h4>Venue</h4>
+            <p>
+              Daffodil Hill Events
+              <span class="subtext">Bethany, OK</span>
+            </p>
+          </div>
+        </div>
+
+        <p class="address-text">
+          Address: 3801 N College Ave, Bethany, OK 73008
         </p>
       </div>
 
+      <!-- 3. Section: Attire (Clean White) -->
       <div id="details" class="content-block">
         <h2>Wedding Attire</h2>
+        <hr class="section-divider" />
         <p>
-          Colors are moss green and blush pink. Attire is "Sunday" dress. For
-          men, button-downs and jeans; for ladies, a dress or blouse/jeans. It
-          is outdoors in June, so dress accordingly!
+          Our palette centers gracefully on moss green and blush pink. Attire is
+          comfortable "Sunday" dress. For men, elegant button-downs and crisp
+          jeans; for ladies, a beautiful light dress or a blouse paired with
+          jeans. The festivities take place outdoors in joyful June, so please
+          dress comfortably for the warm weather!
         </p>
-      </div>
 
-      <div id="travel" class="content-block alt-accent">
-        <h2>Honeymoon Road Trip</h2>
-        <p>
-          We are going on a massive interstate food tour along I-10 East and
-          I-40 West.
-        </p>
-        <div class="img-placeholder">[Insert Travel Map Image Here]</div>
-        <p>
-          We look forward to the best foods from famous stops like Dallas, New
-          Orleans, Atlanta, and Nashville!
-        </p>
-      </div>
-
-      <div id="registry" class="content-block">
-        <h2>Honeymoon Fund</h2>
-        <p>
-          No gifts are necessary, we are happy with your presence. If you wish
-          to contribute, we are looking for help with gas, AirB&Bs, hotels, or
-          CashApp.
-        </p>
-        <div class="registry-links">
-          <a href="#" class="registry-btn">CashApp</a>
-          <a href="#" class="registry-btn">Airbnb/Gas Cards</a>
+        <div class="palette-swatches">
+          <div class="swatch-item">
+            <div class="swatch-circle moss"></div>
+            <span class="swatch-label">Moss Green</span>
+          </div>
+          <div class="swatch-item">
+            <div class="swatch-circle blush"></div>
+            <span class="swatch-label">Blush Pink</span>
+          </div>
         </div>
       </div>
 
-      <div id="rsvp" class="content-block alt-accent">
+      <!-- 4. Section: Honeymoon Travel (Feature Accent: Soft Blush) -->
+      <div id="travel" class="content-block featured-block">
+        <h2>Honeymoon Road Trip</h2>
+        <hr class="section-divider" />
+        <p>
+          To celebrate our marriage, we are embarking on a beautiful
+          cross-country food tour along
+          <br />I-10 East and I-40 West.
+        </p>
+
+        <div class="img-container-map">
+          <img
+            src="images/map.png"
+            alt="Honeymoon Road Trip Route Map"
+            class="wedding-photo"
+          />
+        </div>
+
+        <p>
+          We look forward to experiencing local dishes and local cultures from
+          historic landmarks in <br />
+          <strong
+            ><u>Dallas</u>, <u>New Orleans</u>, <u>Atlanta</u>, and
+            <u>Nashville</u></strong
+          >!
+        </p>
+      </div>
+
+      <!-- 5. Section: Registry/Fund (Clean White) -->
+      <div id="registry" class="content-block">
+        <h2>Honeymoon Fund</h2>
+        <hr class="section-divider" />
+        <p>
+          We are incredibly pleased to have you join us on our wedding day. No
+          gifts are necessary, and we therefore do not have a registry. We are
+          happy with your presence!
+          <br />
+          <br />
+          If you would like to help us celebrate our special day with a gift, we
+          humbly ask if you would please contribute to our first adventure
+          together as a married couple in one of the following ways:
+        </p>
+
+        <ul class="wishlist-stars">
+          <li>
+            Gas Cards
+            <span class="subtext">(Buc-ees, Chevron, On-Cue, QuikTrip)</span>
+          </li>
+          <li>
+            Airbnb Gift Cards & Hotel Stays
+            <span class="subtext"
+              >(Florida: 6/26 - 6/28, Nashville: 6/30 - 7/2)</span
+            >
+          </li>
+          <li>
+            Direct CashApp Payment
+            <span class="subtext">
+              (To help with other memorable purchases!)
+            </span>
+          </li>
+        </ul>
+
+        <div class="qr-container">
+          <p class="qr-label">Scan to donate via CashApp</p>
+          <img
+            src="images/cashapp.jpg"
+            alt="CashApp QR Code"
+            class="cashapp-qr"
+          />
+        </div>
+
+        <div class="registry-links">
+          <a href="#" class="registry-btn">CashApp Link</a>
+          <a href="#" class="registry-btn">Airbnb & Gas Cards</a>
+        </div>
+      </div>
+
+      <!-- 6. Section: RSVP (Feature Accent: Soft Blush) -->
+      <div id="rsvp" class="content-block featured-block">
         <h2>RSVP</h2>
-        <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
-          <div class="form-group" style="margin-bottom: 1rem">
+        <hr class="section-divider" />
+        <p>
+          Kindly reply by your earliest convenience to let us prepare your seat.
+        </p>
+
+        <form
+          action="https://formspree.io/f/xdavzjoz"
+          method="POST"
+          class="rsvp-form"
+        >
+          <div class="form-group">
             <label for="name">Full Name</label>
             <input
               type="text"
               id="name"
               name="name"
               required
-              style="width: 100%; padding: 0.5rem"
+              class="form-input"
+              placeholder="e.g., Jane Doe"
             />
           </div>
 
-          <div class="form-group" style="margin-bottom: 1rem">
+          <div class="form-group">
             <label for="attending">Will you be attending?</label>
-            <select
-              id="attending"
-              name="attending"
-              style="width: 100%; padding: 0.5rem"
-            >
+            <select id="attending" name="attending" class="form-select">
               <option value="yes">Joyfully Accept</option>
               <option value="no">Regretfully Decline</option>
             </select>
           </div>
 
-          <div class="form-group" style="margin-bottom: 1rem">
+          <div class="form-group">
             <label for="guests">Number of Guests</label>
             <input
               type="number"
+              default="1"
               id="guests"
               name="guests"
               min="1"
-              max="10"
-              style="width: 100%; padding: 0.5rem"
+              max="5"
+              class="form-input"
+              placeholder="Enter Your Number of Guests Here"
             />
           </div>
 
-          <button
-            type="submit"
-            style="
-              background: var(--primary);
-              color: white;
-              padding: 1rem 2rem;
-              border: none;
-              border-radius: var(--radius-md);
-              cursor: pointer;
-            "
-          >
-            Send RSVP
-          </button>
+          <button type="submit" class="btn-submit">Send RSVP</button>
         </form>
       </div>
     </div>
 
     <footer>
-      <p style="text-align: center; padding: 2rem">
-        Rachel & Christopher • Created with love
-      </p>
+      <p class="footer-text">Rachel & Christopher • Created with love</p>
     </footer>
   </body>
 </html>
