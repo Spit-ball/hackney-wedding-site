@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rachel & Christopher— Wedding Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary: #4e5949;
+        --accent: #e5b3b3;
+        --accent-dark: #cc9696;
+        --text: #2c3e50;
+        --text-secondary: #576574;
+        --bg-base: #f7f5f0;
+        --white: #ffffff;
+        --radius-lg: 24px;
+        --radius-md: 12px;
+        --shadow-lift: 0 12px 40px rgba(78, 89, 73, 0.06);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: var(--text);
+        background-color: var(--bg-base);
+        line-height: 1.7;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 400;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        padding: 1.4rem;
+        z-index: 1000;
+        text-align: center;
+      }
+      nav a {
+        text-decoration: none;
+        color: var(--text);
+        margin: 0 1rem;
+        font-size: 0.8rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+
+      header {
+        padding: 12rem 2rem;
+        text-align: center;
+        background: #e8e6e1;
+        min-height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      header h1 {
+        font-size: 4.5rem;
+        color: var(--primary);
+        font-style: italic;
+      }
+
+      .main-container {
+        max-width: 960px;
+        margin: -4rem auto 0 auto;
+        padding: 0 2rem 6rem 2rem;
+      }
+      .content-block {
+        background: var(--white);
+        padding: 4rem;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-lift);
+        margin-bottom: 3rem;
+        position: relative;
+      }
+      .content-block::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background-color: var(--primary);
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      }
+      .alt-accent::before {
+        background-color: var(--accent);
+      }
+
+      .couple-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+      .registry-btn {
+        display: inline-block;
+        padding: 1rem 2rem;
+        border: 1px solid var(--primary);
+        color: var(--primary);
+        text-decoration: none;
+        margin: 0.5rem;
+        border-radius: var(--radius-md);
+      }
+
+      .img-placeholder {
+        width: 100%;
+        height: 300px;
+        background: #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem 0;
+        border-radius: var(--radius-md);
+      }
+
+      @media (max-width: 768px) {
+        .content-block {
+          padding: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#about">Couple</a>
+      <a href="#event">Event</a>
+      <a href="#travel">Honeymoon</a>
+      <a href="#rsvp">RSVP</a>
+    </nav>
+
+    <header>
+      <h1>Rachel & Christopher</h1>
+      <p>Monday, June 21st, 2027</p>
+    </header>
+
+    <div class="main-container">
+      <div class="img-placeholder">[Insert Hero Wedding Photo Here]</div>
+
+      <div id="about" class="content-block">
+        <h2>The Couple</h2>
+        <div class="couple-container">
+          <div class="profile">
+            <h3>Our Story</h3>
+            <p>
+              One night, we both found ourselves in the same room, eyeing each
+              other across a pool table. Rachel approached, and Chris introduced
+              himself. We played many games together since, and we humbly invite
+              you to join us as we vow to be together forever.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="event" class="content-block alt-accent">
+        <h2>The Big Day</h2>
+        <p><strong>Date:</strong> Monday, June 21st, 2027</p>
+        <p><strong>Ceremony:</strong> 7:00 PM (Reception to follow)</p>
+        <p>
+          <strong>Venue:</strong> Daffodil Hill Events, 3801 N College Ave,
+          Bethany, OK 73008
+        </p>
+      </div>
+
+      <div id="details" class="content-block">
+        <h2>Wedding Attire</h2>
+        <p>
+          Colors are moss green and blush pink. Attire is "Sunday" dress. For
+          men, button-downs and jeans; for ladies, a dress or blouse/jeans. It
+          is outdoors in June, so dress accordingly!
+        </p>
+      </div>
+
+      <div id="travel" class="content-block alt-accent">
+        <h2>Honeymoon Road Trip</h2>
+        <p>
+          We are going on a massive interstate food tour along I-10 East and
+          I-40 West.
+        </p>
+        <div class="img-placeholder">[Insert Travel Map Image Here]</div>
+        <p>
+          We look forward to the best foods from famous stops like Dallas, New
+          Orleans, Atlanta, and Nashville!
+        </p>
+      </div>
+
+      <div id="registry" class="content-block">
+        <h2>Honeymoon Fund</h2>
+        <p>
+          No gifts are necessary, we are happy with your presence. If you wish
+          to contribute, we are looking for help with gas, AirB&Bs, hotels, or
+          CashApp.
+        </p>
+        <div class="registry-links">
+          <a href="#" class="registry-btn">CashApp</a>
+          <a href="#" class="registry-btn">Airbnb/Gas Cards</a>
+        </div>
+      </div>
+
+      <div id="rsvp" class="content-block alt-accent">
+        <h2>RSVP</h2>
+        <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
+          <div class="form-group" style="margin-bottom: 1rem">
+            <label for="name">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              style="width: 100%; padding: 0.5rem"
+            />
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1rem">
+            <label for="attending">Will you be attending?</label>
+            <select
+              id="attending"
+              name="attending"
+              style="width: 100%; padding: 0.5rem"
+            >
+              <option value="yes">Joyfully Accept</option>
+              <option value="no">Regretfully Decline</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1rem">
+            <label for="guests">Number of Guests</label>
+            <input
+              type="number"
+              id="guests"
+              name="guests"
+              min="1"
+              max="10"
+              style="width: 100%; padding: 0.5rem"
+            />
+          </div>
+
+          <button
+            type="submit"
+            style="
+              background: var(--primary);
+              color: white;
+              padding: 1rem 2rem;
+              border: none;
+              border-radius: var(--radius-md);
+              cursor: pointer;
+            "
+          >
+            Send RSVP
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <p style="text-align: center; padding: 2rem">
+        Rachel & Christopher • Created with love
+      </p>
+    </footer>
+  </body>
+</html>
