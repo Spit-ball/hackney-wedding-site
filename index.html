@@ -27,7 +27,6 @@
         --radius-md: 16px;
         --radius-sm: 8px;
 
-        /* Deeper, softer modern shadow */
         --shadow-lift: 0 20px 50px rgba(78, 89, 73, 0.04);
         --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
       }
@@ -52,7 +51,6 @@
         -webkit-font-smoothing: antialiased;
       }
 
-      /* Elegant Editorial Typography */
       h1,
       h2,
       h3,
@@ -69,7 +67,6 @@
         color: var(--text-secondary);
       }
 
-      /* Utility Text Classes */
       .text-lead {
         font-size: 1.35rem;
         font-style: italic;
@@ -98,7 +95,6 @@
         margin-top: 0.2rem;
       }
 
-      /* Minimalist Blur Navigation */
       nav {
         position: fixed;
         top: 0;
@@ -131,19 +127,18 @@
 
       /* Immersive Cinematic Hero Header */
       header {
-        padding: 0 2rem;
+        padding: 15vh 2rem 0 2rem; /* Added 25vh top padding to push content down */
         text-align: center;
         height: 90vh;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start; /* Changed from center to flex-start */
         align-items: center;
         color: var(--white);
         position: relative;
-        overflow: hidden; /* Prevents the zoomed image from spilling outside the header boundaries */
+        overflow: hidden;
       }
 
-      /* Handles the background image zoom safely */
       header::before {
         content: "";
         position: absolute;
@@ -156,15 +151,13 @@
           url("images/field.jpg");
         background-size: cover;
         background-position: center 40%;
-        transform: scale(
-          1.5
-        ); /* 1.15 = 15% zoomed in. Adjust up or down as needed! */
+        transform: scale(1);
         z-index: 1;
       }
 
-      /* Ensures the text and button sit perfectly on top of the zoomed image */
       header h1,
-      header p,
+      header h2,
+      header .hero-details,
       header .hero-btn {
         position: relative;
         z-index: 2;
@@ -175,21 +168,65 @@
         color: var(--white);
         font-style: italic;
         font-weight: 300;
-        line-height: 1.1;
+        line-height: 1.5;
         text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
       }
 
-      header p {
-        font-size: clamp(0.8rem, 2vw, 1.1rem);
-        font-weight: 400;
-        letter-spacing: 4px;
-        text-transform: uppercase;
-        margin-top: 1.5rem;
-        color: rgba(255, 255, 255, 0.9);
+      header h2.hero-subtitle {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        color: var(--white);
+        font-style: italic;
+        font-weight: 300;
+        margin-top: 0.5rem;
+        text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .hero-details {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1.5rem 3rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        background: rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        border-radius: var(--radius-sm);
+      }
+
+      .hero-details p {
+        margin: 0;
         text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
       }
 
-      /* Hero Action Button */
+      .hero-date {
+        font-size: clamp(0.85rem, 2vw, 1rem);
+        font-weight: 500;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--white);
+      }
+
+      .hero-venue {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.8rem, 3vw, 2.2rem);
+        font-weight: 400;
+        letter-spacing: 1px;
+        color: var(--accent-light);
+        margin: 0.2rem 0 !important;
+      }
+
+      .hero-address {
+        font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+        font-weight: 300;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
       .hero-btn {
         display: inline-block;
         margin-top: 2.5rem;
@@ -214,7 +251,6 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       }
 
-      /* Container Structure with High Whitespace Layout */
       .main-container {
         max-width: 1040px;
         margin: -6rem auto 0 auto;
@@ -232,7 +268,6 @@
         text-align: center;
       }
 
-      /* Refined Context Styles */
       .content-block h2 {
         font-size: 2.5rem;
         margin-bottom: 1.5rem;
@@ -253,7 +288,6 @@
         margin: 0 auto 2.5rem auto;
       }
 
-      /* Highlight styling alternating block (Soft Blush) */
       .featured-block {
         background-color: var(--accent-light);
         border: 1px solid rgba(229, 179, 179, 0.3);
@@ -275,7 +309,6 @@
         );
       }
 
-      /* Couple Profile Styling */
       .couple-container {
         max-width: 700px;
         margin: 0 auto;
@@ -317,7 +350,6 @@
         filter: brightness(1.02);
       }
 
-      /* Event Details Format */
       .event-details-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -354,7 +386,6 @@
         color: var(--text);
       }
 
-      /* Color Swatches Swatch Wrapper */
       .palette-swatches {
         display: flex;
         justify-content: center;
@@ -398,7 +429,6 @@
         color: var(--text-secondary);
       }
 
-      /* Map container styling */
       .img-container-map {
         width: 100%;
         height: 400px;
@@ -408,7 +438,6 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
       }
 
-      /* Polished & Centered Star Wishlist Styling */
       .wishlist-stars {
         list-style: none;
         max-width: 400px;
@@ -437,7 +466,6 @@
         font-size: 1.1rem;
       }
 
-      /* Registry Actions */
       .registry-links {
         display: flex;
         justify-content: center;
@@ -468,7 +496,6 @@
         box-shadow: 0 10px 25px rgba(78, 89, 73, 0.15);
       }
 
-      /* CashApp Visual Polish */
       .qr-container {
         margin: 3.5rem 0 1rem 0;
       }
@@ -495,7 +522,6 @@
         transform: scale(1.02);
       }
 
-      /* Modernized Inputs & Form Layout */
       .rsvp-form {
         max-width: 550px;
         margin: 3rem auto 0 auto;
@@ -563,7 +589,6 @@
         box-shadow: 0 15px 35px rgba(78, 89, 73, 0.2);
       }
 
-      /* Clean Footer Layout */
       footer {
         background-color: var(--white);
         border-top: 1px solid rgba(78, 89, 73, 0.05);
@@ -578,7 +603,6 @@
         text-transform: uppercase;
       }
 
-      /* Responsive Fine-Tuning */
       @media (max-width: 868px) {
         .content-block {
           padding: 4rem 2rem;
@@ -613,7 +637,14 @@
 
     <header>
       <h1>Christopher & Rachel</h1>
-      <p>Monday, June 21st, 2027</p>
+      <h2 class="hero-subtitle">are getting married!</h2>
+
+      <div class="hero-details">
+        <p class="hero-date">Monday, June 21st, 2027</p>
+        <p class="hero-venue">Daffodil Hill Events</p>
+        <p class="hero-address">3801 N College Ave, Bethany, OK 73008</p>
+      </div>
+
       <a href="#rsvp" class="hero-btn">RSVP</a>
     </header>
 
@@ -800,15 +831,19 @@
 
         <div class="qr-container">
           <p class="qr-label">Scan to donate via CashApp</p>
-          <img
-            src="images/cashapp.jpg"
-            alt="CashApp QR Code"
-            class="cashapp-qr"
-          />
+          <a href="cashme://cash.app/$hackneysack">
+            <img
+              src="images/cashapp2.svg"
+              alt="CashApp QR Code"
+              class="cashapp-qr"
+            />
+          </a>
         </div>
 
         <div class="registry-links">
-          <a href="#" class="registry-btn">CashApp Link</a>
+          <a href="https://cash.app/$hackneysack" class="registry-btn"
+            >CashApp Link</a
+          >
           <a href="#" class="registry-btn">Airbnb & Gas Cards</a>
         </div>
       </div>
