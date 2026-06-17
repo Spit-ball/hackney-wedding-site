@@ -431,11 +431,22 @@
 
       .img-container-map {
         width: 100%;
-        height: 400px;
+        height: 100%;
         overflow: hidden;
         margin: 3.5rem 0;
         border-radius: var(--radius-md);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+      }
+
+      .img-container-map a:hover img {
+        opacity: 0.9;
+        transition: opacity 0.2s ease-in-out;
+        cursor: zoom-in;
+      }
+
+      .responsive-map {
+        max-width: 100%;
+        height: auto;
+        display: block;
       }
 
       .wishlist-stars {
@@ -616,7 +627,8 @@
           gap: 1.5rem;
         }
         .img-container-map {
-          height: 280px;
+          height: auto;
+          width: 100%;
           margin: 2rem 0;
         }
         .palette-swatches {
@@ -747,7 +759,7 @@
         <h2>Wedding Attire</h2>
         <hr class="section-divider" />
         <p>
-          If you dare to join in on the fun, the colors are moss green and blush
+          If you care to join in on the fun, the colors are moss green and blush
           pink, and we like to think of the attire as “Sunday” dress. For men,
           button-downs, jeans, maybe even a nice pair of cowboy boots! Ladies,
           feel free to wear a dress, or you could rock the jeans and blouse!
@@ -778,11 +790,13 @@
         </p>
 
         <div class="img-container-map">
-          <img
-            src="images/map.png"
-            alt="Honeymoon Road Trip Route Map"
-            class="wedding-photo"
-          />
+          <a href="images/map.png" target="_blank" rel="noopener noreferrer">
+            <img
+              src="images/map.png"
+              alt="Honeymoon Road Trip Route Map"
+              class="wedding-photo responsive-map"
+            />
+          </a>
         </div>
 
         <p>
@@ -818,7 +832,7 @@
           <li>
             Airbnb Gift Cards & Hotel Stays
             <span class="subtext"
-              >(Florida: 6/26 - 6/28, Nashville: 6/30 - 7/2)</span
+              >(Panama City Beach: 6/27 - 6/29, Nashville: 7/1 - 7/2)</span
             >
           </li>
           <li>
@@ -830,8 +844,8 @@
         </ul>
 
         <div class="qr-container">
-          <p class="qr-label">Scan to donate via CashApp</p>
-          <a href="cashme://cash.app/$hackneysack">
+          <p class="qr-label">Scan or tap to donate via CashApp</p>
+          <a href="https://cash.app/$hackneysack">
             <img
               src="images/cashapp2.svg"
               alt="CashApp QR Code"
@@ -839,6 +853,57 @@
             />
           </a>
         </div>
+
+        <p class="mailing-address-label">
+          Physical gift cards can be brought to the wedding or mailed to:
+        </p>
+        <p class="mailing-address">
+          <strong>9504 S Shartel, OKC OK, 73139.</strong>
+        </p>
+
+        <p>
+          We intend to travel in this loop along I-10 East to Florida, and then
+          I-40 West as we return to OKC - with MANY stops along the way:
+        </p>
+
+        <ul class="wishlist-stars">
+          <li>
+            OKC → Dallas (2 nights, TexMex):
+            <span class="subtext">6/22/27 - 6/23/27</span>
+          </li>
+          <li>
+            Dallas → Shreveport (1 night, ???):
+            <span class="subtext">6/24/27</span>
+          </li>
+          <li>
+            Shreveport → New Orleans (2 nights, Cajun):
+            <span class="subtext">6/25/27 - 6/26/27</span>
+          </li>
+          <li>
+            New Orleans → Panama City Beach (3 nights, Seafood):
+            <span class="subtext">6/27/27 - 6/29/27</span>
+          </li>
+          <li>
+            Panama City Beach → Atlanta (1 night, ???):
+            <span class="subtext">6/30/27</span>
+          </li>
+          <li>
+            Atlanta → Nashville (2 nights, Fried Chicken):
+            <span class="subtext">7/1/27 - 7/2/27</span>
+          </li>
+          <li>
+            Nashville → Memphis (1 night, ???):
+            <span class="subtext">7/3/27</span>
+          </li>
+          <li>
+            Memphis → Eureka Springs (1 night, ???):
+            <span class="subtext">7/4/27</span>
+          </li>
+          <li>
+            Eureka Springs → OKC:
+            <span class="subtext">7/5/27</span>
+          </li>
+        </ul>
 
         <div class="registry-links">
           <a href="https://cash.app/$hackneysack" class="registry-btn"
