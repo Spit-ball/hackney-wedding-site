@@ -614,6 +614,86 @@
         text-transform: uppercase;
       }
 
+      /* CSS Class definitions for the Honeymoon Schedule Table */
+      .schedule-table {
+        margin: 3.5rem auto 0 auto;
+        max-width: 600px;
+        text-align: left;
+      }
+
+      .schedule-row {
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+        padding: 0.9rem 0;
+        border-bottom: 1px solid rgba(229, 179, 179, 0.35);
+      }
+
+      .schedule-row.last-row {
+        border-bottom: none;
+      }
+
+      .schedule-date {
+        flex: 0 0 130px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 300;
+        letter-spacing: 0.04em;
+        color: var(--text-secondary);
+      }
+
+      .schedule-location {
+        flex: 1;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.15rem;
+        font-weight: 400;
+        color: var(--text);
+      }
+
+      .schedule-price {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: var(--accent-dark);
+        font-style: italic;
+      }
+
+      .schedule-price.text-treat {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        text-align: right;
+      }
+
+      .schedule-price.text-dash {
+        color: var(--accent);
+      }
+
+      .schedule-total {
+        display: flex;
+        justify-content: flex-end;
+        align-items: baseline;
+        gap: 0.75rem;
+        margin-top: 1.25rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(229, 179, 179, 0.5);
+      }
+
+      .schedule-total-label {
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+      }
+
+      .schedule-total-value {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.75rem;
+        font-weight: 400;
+        color: var(--primary);
+      }
+
       @media (max-width: 868px) {
         .content-block {
           padding: 4rem 2rem;
@@ -658,6 +738,44 @@
         .hero-btn {
           margin-top: 2rem;
           margin-bottom: 1rem;
+        }
+
+        /* Responsive Mobile styles for the Honeymoon Schedule Table */
+        .schedule-row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.25rem;
+          padding: 1rem 0;
+        }
+
+        .schedule-date {
+          flex: none;
+          font-size: 0.75rem;
+          margin-bottom: 0.1rem;
+        }
+
+        .schedule-location {
+          flex: none;
+          font-size: 1.3rem;
+          font-weight: 500;
+        }
+
+        .schedule-price {
+          align-self: flex-end;
+          margin-top: -1.5rem;
+          font-size: 1.35rem;
+        }
+
+        .schedule-price.text-treat {
+          margin-top: 0;
+          font-size: 0.85rem;
+          text-align: left;
+          align-self: flex-start;
+        }
+
+        .schedule-price.text-dash {
+          margin-top: -1.5rem;
+          align-self: flex-end;
         }
       }
     </style>
@@ -832,463 +950,90 @@
             <u>Nashville</u></strong
           >!
         </p>
-        <div
-          style="margin: 3.5rem auto 0 auto; max-width: 600px; text-align: left"
-        >
+
+        <div class="schedule-table">
           <h2>Honeymoon Schedule</h2>
 
-          <!-- Row -->
-          <div
-            style="
-              display: flex;
-              align-items: baseline;
-              gap: 1rem;
-              padding: 0.9rem 0;
-              border-bottom: 1px solid rgba(229, 179, 179, 0.35);
-            "
-          >
-            <span
-              style="
-                flex: 0 0 130px;
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 0.72rem;
-                font-weight: 300;
-                letter-spacing: 0.04em;
-                color: var(--text-secondary);
-              "
-              >Jun 21 · Mon</span
-            >
-            <span
-              style="
-                flex: 1;
-                font-family: &quot;Cormorant Garamond&quot;, serif;
-                font-size: 1.15rem;
-                font-weight: 400;
-                color: var(--text);
-              "
-              >Oklahoma City</span
-            >
-            <span
-              style="
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 1.5rem;
-                font-weight: 300;
-                color: var(--accent-dark);
-                font-style: italic;
-              "
-              >$500</span
-            >
+          <!-- Row 1 -->
+          <div class="schedule-row">
+            <span class="schedule-date">Jun 21 · Mon</span>
+            <span class="schedule-location">Oklahoma City</span>
+            <span class="schedule-price">$500</span>
           </div>
 
-          <div
-            style="
-              display: flex;
-              align-items: baseline;
-              gap: 1rem;
-              padding: 0.9rem 0;
-              border-bottom: 1px solid rgba(229, 179, 179, 0.35);
-            "
-          >
-            <span
-              style="
-                flex: 0 0 130px;
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 0.72rem;
-                font-weight: 300;
-                letter-spacing: 0.04em;
-                color: var(--text-secondary);
-              "
-              >Jun 22–23 · Tue–Wed</span
-            >
-            <span
-              style="
-                flex: 1;
-                font-family: &quot;Cormorant Garamond&quot;, serif;
-                font-size: 1.15rem;
-                font-weight: 400;
-                color: var(--text);
-              "
-              >Dallas</span
-            >
-            <span
-              style="
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 0.95rem;
-                font-weight: 300;
-                color: var(--text-secondary);
-                font-style: italic;
-                text-align: right;
-              "
+          <!-- Row 2 -->
+          <div class="schedule-row">
+            <span class="schedule-date">Jun 22–23 · Tue–Wed</span>
+            <span class="schedule-location">Dallas</span>
+            <span class="schedule-price text-treat"
               >Bride &amp; Groom's treat</span
             >
           </div>
 
-          <div
-            style="
-              display: flex;
-              align-items: baseline;
-              gap: 1rem;
-              padding: 0.9rem 0;
-              border-bottom: 1px solid rgba(229, 179, 179, 0.35);
-            "
-          >
-            <span
-              style="
-                flex: 0 0 130px;
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 0.72rem;
-                font-weight: 300;
-                letter-spacing: 0.04em;
-                color: var(--text-secondary);
-              "
-              >Jun 24 · Thu</span
-            >
-            <span
-              style="
-                flex: 1;
-                font-family: &quot;Cormorant Garamond&quot;, serif;
-                font-size: 1.15rem;
-                font-weight: 400;
-                color: var(--text);
-              "
-              >Shreveport</span
-            >
-            <span
-              style="
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 1.5rem;
-                font-weight: 300;
-                color: var(--accent-dark);
-                font-style: italic;
-              "
-              >$255</span
-            >
+          <!-- Row 3 -->
+          <div class="schedule-row">
+            <span class="schedule-date">Jun 24 · Thu</span>
+            <span class="schedule-location">Shreveport</span>
+            <span class="schedule-price">$255</span>
           </div>
 
-          <div
-            style="
-              display: flex;
-              align-items: baseline;
-              gap: 1rem;
-              padding: 0.9rem 0;
-              border-bottom: 1px solid rgba(229, 179, 179, 0.35);
-            "
-          >
-            <span
-              style="
-                flex: 0 0 130px;
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 0.72rem;
-                font-weight: 300;
-                letter-spacing: 0.04em;
-                color: var(--text-secondary);
-              "
-              >Jun 25–26 · Fri–Sat</span
-            >
-            <span
-              style="
-                flex: 1;
-                font-family: &quot;Cormorant Garamond&quot;, serif;
-                font-size: 1.15rem;
-                font-weight: 400;
-                color: var(--text);
-              "
-              >New Orleans</span
-            >
-            <span
-              style="
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 1.5rem;
-                font-weight: 300;
-                color: var(--accent-dark);
-                font-style: italic;
-              "
-              >$500</span
-            >
+          <!-- Row 4 -->
+          <div class="schedule-row">
+            <span class="schedule-date">Jun 25–26 · Fri–Sat</span>
+            <span class="schedule-location">New Orleans</span>
+            <span class="schedule-price">$500</span>
           </div>
 
-          <div
-            style="
-              display: flex;
-              align-items: baseline;
-              gap: 1rem;
-              padding: 0.9rem 0;
-              border-bottom: 1px solid rgba(229, 179, 179, 0.35);
-            "
-          >
-            <span
-              style="
-                flex: 0 0 130px;
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 0.72rem;
-                font-weight: 300;
-                letter-spacing: 0.04em;
-                color: var(--text-secondary);
-              "
-              >Jun 27–29 · Sun–Tue</span
-            >
-            <span
-              style="
-                flex: 1;
-                font-family: &quot;Cormorant Garamond&quot;, serif;
-                font-size: 1.15rem;
-                font-weight: 400;
-                color: var(--text);
-              "
-              >Panama City Beach</span
-            >
-            <span
-              style="
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 1.5rem;
-                font-weight: 300;
-                color: var(--accent-dark);
-                font-style: italic;
-              "
-              >$1,200</span
-            >
+          <!-- Row 5 -->
+          <div class="schedule-row">
+            <span class="schedule-date">Jun 27–29 · Sun–Tue</span>
+            <span class="schedule-location">Panama City Beach</span>
+            <span class="schedule-price">$1,200</span>
           </div>
 
-          <div
-            style="
-              display: flex;
-              align-items: baseline;
-              gap: 1rem;
-              padding: 0.9rem 0;
-              border-bottom: 1px solid rgba(229, 179, 179, 0.35);
-            "
-          >
-            <span
-              style="
-                flex: 0 0 130px;
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 0.72rem;
-                font-weight: 300;
-                letter-spacing: 0.04em;
-                color: var(--text-secondary);
-              "
-              >Jun 30 · Wed</span
-            >
-            <span
-              style="
-                flex: 1;
-                font-family: &quot;Cormorant Garamond&quot;, serif;
-                font-size: 1.15rem;
-                font-weight: 400;
-                color: var(--text);
-              "
-              >Atlanta</span
-            >
-            <span
-              style="
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 1.5rem;
-                font-weight: 300;
-                color: var(--accent-dark);
-                font-style: italic;
-              "
-              >$250</span
-            >
+          <!-- Row 6 -->
+          <div class="schedule-row">
+            <span class="schedule-date">Jun 30 · Wed</span>
+            <span class="schedule-location">Atlanta</span>
+            <span class="schedule-price">$250</span>
           </div>
 
-          <div
-            style="
-              display: flex;
-              align-items: baseline;
-              gap: 1rem;
-              padding: 0.9rem 0;
-              border-bottom: 1px solid rgba(229, 179, 179, 0.35);
-            "
-          >
-            <span
-              style="
-                flex: 0 0 130px;
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 0.72rem;
-                font-weight: 300;
-                letter-spacing: 0.04em;
-                color: var(--text-secondary);
-              "
-              >Jul 1–2 · Thu–Fri</span
-            >
-            <span
-              style="
-                flex: 1;
-                font-family: &quot;Cormorant Garamond&quot;, serif;
-                font-size: 1.15rem;
-                font-weight: 400;
-                color: var(--text);
-              "
-              >Nashville</span
-            >
-            <span
-              style="
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 1.5rem;
-                font-weight: 300;
-                color: var(--accent-dark);
-                font-style: italic;
-              "
-              >$850</span
-            >
+          <!-- Row 7 -->
+          <div class="schedule-row">
+            <span class="schedule-date">Jul 1–2 · Thu–Fri</span>
+            <span class="schedule-location">Nashville</span>
+            <span class="schedule-price">$850</span>
           </div>
 
-          <div
-            style="
-              display: flex;
-              align-items: baseline;
-              gap: 1rem;
-              padding: 0.9rem 0;
-              border-bottom: 1px solid rgba(229, 179, 179, 0.35);
-            "
-          >
-            <span
-              style="
-                flex: 0 0 130px;
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 0.72rem;
-                font-weight: 300;
-                letter-spacing: 0.04em;
-                color: var(--text-secondary);
-              "
-              >Jul 3 · Sat</span
-            >
-            <span
-              style="
-                flex: 1;
-                font-family: &quot;Cormorant Garamond&quot;, serif;
-                font-size: 1.15rem;
-                font-weight: 400;
-                color: var(--text);
-              "
-              >Memphis</span
-            >
-            <span
-              style="
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 1.5rem;
-                font-weight: 300;
-                color: var(--accent-dark);
-                font-style: italic;
-              "
-              >$320</span
-            >
+          <!-- Row 8 -->
+          <div class="schedule-row">
+            <span class="schedule-date">Jul 3 · Sat</span>
+            <span class="schedule-location">Memphis</span>
+            <span class="schedule-price">$320</span>
           </div>
 
-          <div
-            style="
-              display: flex;
-              align-items: baseline;
-              gap: 1rem;
-              padding: 0.9rem 0;
-              border-bottom: 1px solid rgba(229, 179, 179, 0.35);
-            "
-          >
-            <span
-              style="
-                flex: 0 0 130px;
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 0.72rem;
-                font-weight: 300;
-                letter-spacing: 0.04em;
-                color: var(--text-secondary);
-              "
-              >Jul 4 · Sun</span
-            >
-            <span
-              style="
-                flex: 1;
-                font-family: &quot;Cormorant Garamond&quot;, serif;
-                font-size: 1.15rem;
-                font-weight: 400;
-                color: var(--text);
-              "
-              >Eureka Springs</span
-            >
-            <span
-              style="
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 1.5rem;
-                font-weight: 300;
-                color: var(--accent-dark);
-                font-style: italic;
-              "
-              >$250</span
-            >
+          <!-- Row 9 -->
+          <div class="schedule-row">
+            <span class="schedule-date">Jul 4 · Sun</span>
+            <span class="schedule-location">Eureka Springs</span>
+            <span class="schedule-price">$250</span>
           </div>
 
-          <div
-            style="
-              display: flex;
-              align-items: baseline;
-              gap: 1rem;
-              padding: 0.9rem 0;
-            "
-          >
+          <!-- Row 10 -->
+          <div class="schedule-row last-row">
+            <span class="schedule-date">Jul 5 · Mon</span>
             <span
-              style="
-                flex: 0 0 130px;
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 0.72rem;
-                font-weight: 300;
-                letter-spacing: 0.04em;
-                color: var(--text-secondary);
-              "
-              >Jul 5 · Mon</span
-            >
-            <span
-              style="
-                flex: 1;
-                font-family: &quot;Cormorant Garamond&quot;, serif;
-                font-size: 1.15rem;
-                font-style: italic;
-                color: var(--text-secondary);
-              "
+              class="schedule-location"
+              style="font-style: italic; color: var(--text-secondary)"
               >Home ♥</span
             >
-            <span
-              style="
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 1.5rem;
-                color: var(--accent);
-                font-style: italic;
-              "
-              >—</span
-            >
+            <span class="schedule-price text-dash">—</span>
           </div>
 
           <!-- Total -->
-          <div
-            style="
-              display: flex;
-              justify-content: flex-end;
-              align-items: baseline;
-              gap: 0.75rem;
-              margin-top: 1.25rem;
-              padding-top: 1rem;
-              border-top: 1px solid rgba(229, 179, 179, 0.5);
-            "
-          >
-            <span
-              style="
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 0.7rem;
-                font-weight: 500;
-                letter-spacing: 2px;
-                text-transform: uppercase;
-                color: var(--text-secondary);
-              "
-              >Lodging Total</span
-            >
-            <span
-              style="
-                font-family: &quot;Cormorant Garamond&quot;, serif;
-                font-size: 1.75rem;
-                font-weight: 400;
-                color: var(--primary);
-              "
-              >$4,125</span
-            >
+          <div class="schedule-total">
+            <span class="schedule-total-label">Lodging Total</span>
+            <span class="schedule-total-value">$4,125</span>
           </div>
         </div>
       </div>
@@ -1349,7 +1094,6 @@
           <a href="https://cash.app/$hackneysack" class="registry-btn"
             >CashApp Link</a
           >
-          <a href="#" class="registry-btn">Airbnb & Gas Cards</a>
         </div>
       </div>
 
@@ -1394,7 +1138,7 @@
               id="guests"
               name="guests"
               min="1"
-              max="5"
+              max="6"
               class="form-input"
               placeholder="Enter Your Number of Guests Here"
             />
